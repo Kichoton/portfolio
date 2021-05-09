@@ -1,0 +1,42 @@
+@font-face {
+    font-family: "Jetbrains";
+    src: url("/fonts/jetbrainsmono/JetBrainsMono-Regular.woff2") format("woff2"); 
+   }
+
+@font-face {
+    font-family: "Jetbrains-thin";
+    src: url("/fonts/jetbrainsmono/JetBrainsMono-Thin.woff2") format("woff2"); 
+   }
+   
+@font-face {
+    font-family: "Jetbrains-light";
+    src: url("/fonts/jetbrainsmono/JetBrainsMono-Light.woff2") format("woff2"); 
+   }
+   
+@font-face {
+    font-family: "Jetbrains-xtrabold";
+    src: url("/fonts/jetbrainsmono/JetBrainsMono-ExtraBold.woff2") format("woff2"); 
+   }
+
+body{
+    font-family: jetbrains;
+}
+
+.jetbrains-thin{font-family: jetbrains-thin;}
+.jetbrains-light{font-family: jetbrains-light;}
+.jetbrains-xtra{font-family: jetbrains-xtrabold;}
+
+.button{
+    text-decoration: none;
+    color:black;
+    border : 1px solid black; 
+    width : 200px;
+    height: 50px;
+    text-align:center; 
+    line-height:50px;
+}
+
+.button:hover{
+    color: black;
+}
+
