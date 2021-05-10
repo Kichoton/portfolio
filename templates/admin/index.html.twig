@@ -1,0 +1,64 @@
+{% extends "base.html.twig" %}
+
+
+{% block title %}Admin menu{% endblock %}
+
+{% block body %}
+<div class="d-flex flex-column align-items-center">
+    <h1 class="text-center">Admin Panel</h1>
+    <a href="" class="button my-5">message</a>
+</div>
+<div class="row">
+    <div class="col-6 d-flex flex-column justify-content-center align-items-center">
+        <h2>Créa Web</h2>
+        <a href="" class="button my-5">edit</a>
+    </div>
+        <div class="col-6 d-flex flex-column justify-content-center align-items-center">
+        <h2>Créa design</h2>
+        <a href="" class="button my-5">edit</a>
+    </div>
+
+    <div class="row">
+        <div class="col-6">
+            <ul class="w-100">
+                {% for webcrea in webcreas %} 
+                    <div class="row">
+                        <div class="col-2 d-flex flex-column">
+                            <span>{{webcrea.name}}</span>
+                            <span>{{webcrea.client}}</span>
+                            <span>{{webcrea.categorie}}</span>
+                            <span>{{webcrea.miniature}}</span>
+                            <span>{{webcrea.url}}</span>
+                        </div>
+                        <p class="col-8 px-2">{{webcrea.description}}</p>
+                        <div class="col-2 d-flex flex-column">
+                            <a>modifier</a>
+                            <a>supprimer</a>
+                        </div>
+                    </div>
+                {% endfor %}
+            </ul>
+        </div>
+        <div class="col-6">
+            <ul class="w-100">
+                {% for graphiccrea in graphiccreas %} 
+                    <div class="row">
+                        <div class="col-2 d-flex flex-column">
+                            <span>{{graphiccrea.name}}</span>
+                            <span>{{graphiccrea.client}}</span>
+                            <span>{{graphiccrea.categorie}}</span>
+                            <span>{{graphiccrea.miniature}}</span>
+                            <span>{{graphiccrea.url}}</span>
+                        </div>
+                        <p class="col-8 px-2">{{graphiccrea.description}}</p>
+                        <div class="col-2 d-flex flex-column">
+                            <a>modifier</a>
+                            <a>supprimer</a>
+                        </div>
+                    </div>
+                {% endfor %}
+            </ul>
+        </div>
+    </div>
+</div>
+{% endblock %}
