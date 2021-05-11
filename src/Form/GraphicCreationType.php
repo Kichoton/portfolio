@@ -8,7 +8,8 @@ use Symfony\Component\Form\FormBuilderInterface;
 use Symfony\Component\OptionsResolver\OptionsResolver;
 use Symfony\Component\Form\Extension\Core\Type\SubmitType;
 use Symfony\Component\Form\Extension\Core\Type\ChoiceType;
-
+use Symfony\Component\Form\Extension\Core\Type\FileType;
+use Symfony\Component\Validator\Constraints\File;
 
 class GraphicCreationType extends AbstractType
 {
@@ -24,7 +25,21 @@ class GraphicCreationType extends AbstractType
                     'Autre' => 'autre'
                 ]
             ])
-            ->add('miniature')
+            ->add('miniature', FileType::class, [
+                'label' => 'Miniature (Jpg/Jpeg file)',
+                'mapped' => false,
+                "required" => false,
+                "constraints" => [
+                    new File([
+                        'maxSize' => '1G',
+                        'mimeTypes' => [
+                            'image/jpeg',
+                            'image/png',
+                        ],
+                        'mimeTypesMessage' => 'Please send Jpeg or PNG file',
+                    ])
+                ],
+            ])
             ->add('description')
             ->add('url')
             ->add('created_at')

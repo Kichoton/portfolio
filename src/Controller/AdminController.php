@@ -61,9 +61,10 @@ class AdminController extends AbstractController
                 $webcrea = $webcrea_form->getData();
 
                 $miniature_creaweb = $webcrea_form["miniature"]->getData();
-                $miniature_creaweb_name = $fileUploader->upload($miniature_creaweb, "img/miniature_web ");
+                $miniature_creaweb_name = $fileUploader->upload($miniature_creaweb, "img/miniature_web");
 
                 $webcrea->setMiniature($miniature_creaweb_name);
+
 
 
                 $entityManager = $this->getDoctrine()->getManager();
@@ -84,7 +85,7 @@ class AdminController extends AbstractController
     /**
      * @Route("/admin/graphic_edit", name="admin_graphic_edit")
      */
-    public function graphicAdmin(Request $request)
+    public function graphicAdmin(Request $request, FileUploader $fileUploader)
     {
         $graphiccrea_form = $this->createForm(GraphicCreationType::class);
         $graphiccrea_form->handleRequest($request);
@@ -96,7 +97,10 @@ class AdminController extends AbstractController
             if($graphiccrea_form->isValid()){
                 $graphiccrea = $graphiccrea_form->getData();
                 
-               
+               $miniature_creagraphic = $graphiccrea_form["miniature"]->getData();
+                $miniature_creagraphic_name = $fileUploader->upload($miniature_creagraphic, "img/miniature_graphic");
+
+                $graphiccrea->setMiniature($miniature_creagraphic_name);
 
                 $entityManager = $this->getDoctrine()->getManager();
                 $entityManager->persist($graphiccrea);

@@ -27,12 +27,12 @@ class WebCreationType extends AbstractType
                 ]
             ])
             ->add('miniature', FileType::class, [
-                'label' => 'Image (Jpg/Jpeg file)',
+                'label' => 'Miniature (Jpg/Jpeg file)',
                 'mapped' => false,
                 "required" => false,
                 "constraints" => [
                     new File([
-                        'maxSize' => '1024k',
+                        'maxSize' => '1G',
                         'mimeTypes' => [
                             'image/jpeg',
                             'image/png',
