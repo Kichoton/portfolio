@@ -46,7 +46,7 @@ class AdminController extends AbstractController
     }
 
     /**
-     * @Route("/admin/web_edit", name="admin_web_edit")
+     * @Route("/admin/web_create", name="admin_web_create")
      */
     public function webAdmin(Request $request, FileUploader $fileUploader)
     {
@@ -74,7 +74,7 @@ class AdminController extends AbstractController
             }
         }
     
-        return $this->render('admin/web_edit.html.twig', [
+        return $this->render('admin/web_form.html.twig', [
             "webcreas" => $webcreas,
             "webcrea_form" => $webcrea_form->createView()
         ]);
@@ -83,7 +83,7 @@ class AdminController extends AbstractController
     }
 
     /**
-     * @Route("/admin/graphic_edit", name="admin_graphic_edit")
+     * @Route("/admin/graphic_create", name="admin_graphic_create")
      */
     public function graphicAdmin(Request $request, FileUploader $fileUploader)
     {
@@ -110,10 +110,81 @@ class AdminController extends AbstractController
             }
         }
     
-        return $this->render('admin/graphic_edit.html.twig', [
+        return $this->render('admin/graphic_form.html.twig', [
             "graphiccreas" => $graphiccreas,
             "graphiccrea_form" => $graphiccrea_form->createView()
         ]);  
     }
-    // Ajouter routes pour afficher les messages recus
+    
+    
+    /**
+     * @Route("/admin/messages", name="messages")
+     */
+    public function messages(Request $request)
+    {
+       
+        $message_repo = $this->getDoctrine()->getRepository(Message::class);
+        $messages = $message_repo->findAll();
+
+    
+    
+        return $this->render('admin/messages.html.twig', [
+            "messages" => $messages,
+        ]);
+
+        
+    }
+
+    /**
+     * @Route("/admin/graphiccrea_delete/{id}", name="graphiccrea_delete")
+     */
+    public function deleteGraphicCreation($id)
+    {
+
+        $em = $this->getDoctrine()->getManager();
+
+        $graphiccrea_repo = $this->getDoctrine()->getRepository(GraphicCreation::class);
+        $graphiccrea = $graphiccrea_repo->Find($id);
+
+        if(!$id)
+        {
+            throw $this->createNotFoundException('No ID found');
+        }
+
+
+        if($graphiccrea != null)
+        {
+            $em->remove($graphiccrea);
+            $em->flush();
+        }
+
+        return $this->redirectToRoute('admin');
+    }
+
+    /**
+     * @Route("/admin/webcrea_delete/{id}", name="webcrea_delete")
+     */
+    public function deleteWebCreation($id)
+    {
+
+        $em = $this->getDoctrine()->getManager();
+
+        $webcrea_repo = $this->getDoctrine()->getRepository(WebCreation::class);
+        $webcrea = $webcrea_repo->Find($id);
+
+        if(!$id)
+        {
+            throw $this->createNotFoundException('No ID found');
+        }
+
+        if($webcrea != null)
+        {
+            $em->remove($webcrea);
+            $em->flush();
+        }
+
+        return $this->redirectToRoute('admin');
+    }
+
+
 }

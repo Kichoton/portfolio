@@ -1,0 +1,26 @@
+{% extends "./base.html.twig" %}
+
+
+{% block title %}Admin menu{% endblock %}
+
+{% block body %}
+
+    <ul class="w-100">
+        {% for message in messages %} 
+            <li class="row mb-2">
+                <div class="col-3 d-flex flex-column">
+                    <span>{{message.name}}</span>
+                    <span>{{message.email}}</span>
+                    <span>{{message.phone_number}}</span>
+                    <span>{{message.send_at}}</span>
+                    <a>repondre</a>
+                    <br><hr>
+                </div>
+                <p class="col-9 px-2">{{message.message}}</p>
+                
+                <br><hr>
+            </li>
+        {% endfor %}
+    </ul>
+
+{% endblock %}
