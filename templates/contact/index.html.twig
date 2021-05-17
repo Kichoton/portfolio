@@ -22,7 +22,11 @@
         </div>
         <div class="col-4 d-flex flex-column justify-content-center align-items-center">
             {{form_start(message_form)}}
-
+                {{form_widget(message_form.name, {"attr":{"class" : "form-field w-75", "placeholder":"Nom prénom"}})}}
+                {{form_widget(message_form.email, {"attr":{"class" : "form-field w-75", "placeholder":"Email"}})}}
+                {{form_widget(message_form.phone_number, {"attr":{"class" : "form-field w-75", "placeholder":"Numéro de téléphone (facultatif)"}})}}
+                {{form_widget(message_form.message, {"attr":{"class" : "form-field w-75", "placeholder":"Message"}})}}
+                {{form_widget(message_form.save, {"attr":{"class" : "button"}})}}
             {{ form_end(message_form)}}
         </div>
     </div>

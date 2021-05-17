@@ -30,6 +30,7 @@ body{
     text-decoration: none;
     display:block; 
     color:black;
+    background-color: #fff;
     border : 1px solid black; 
     width : 200px;
     height: 50px;
@@ -41,3 +42,17 @@ body{
     color: black;
 }
 
+/* Contact */
+
+.form-field{
+    border: none;
+    border-left : 1px solid Black;
+    border-bottom : 1px solid Black;
+    padding: 1%;
+    margin-bottom: 4%;
+}
+
+.form-field::placeholder{
+    color: black;
+    opacity: 1;
+}

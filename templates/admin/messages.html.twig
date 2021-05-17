@@ -11,10 +11,10 @@
                 <div class="col-3 d-flex flex-column">
                     <span>{{message.name}}</span>
                     <span>{{message.email}}</span>
-                    <span>{{message.phone_number}}</span>
-                    <span>{{message.send_at}}</span>
+                    <span>{{message.phonenumber}}</span>
+                    <span>{{message.sendat|date('l d F Y')}}</span>
                     <a>repondre</a>
-                    <br><hr>
+                    
                 </div>
                 <p class="col-9 px-2">{{message.message}}</p>
                 
