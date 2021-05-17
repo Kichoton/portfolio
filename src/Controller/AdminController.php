@@ -7,6 +7,7 @@ use App\Form\GraphicCreationType;
 use App\Entity\WebCreation;
 use App\Form\WebCreationType;
 use App\Entity\Message;
+use FOS\CKEditorBundle\Form\Type\CKEditorType;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\Form\Extension\Core\Type\DateType;
 use Symfony\Component\Form\Extension\Core\Type\SubmitType;
@@ -134,7 +135,9 @@ class AdminController extends AbstractController
                                 ])
                             ],
                         ])
-                         ->add('description')
+                         ->add('description',CKEditorType::class, array(
+                            'config_name' => 'my_config'
+                         ))
                          ->add('url')
                          ->add('save', SubmitType::class,[
                             "label"=>'Envoyer',
