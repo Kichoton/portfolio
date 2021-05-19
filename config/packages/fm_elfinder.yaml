@@ -1,0 +1,14 @@
+fm_elfinder:
+    assets_path: /assets
+    instances:
+        default:
+            locale: fr
+            editor: ckeditor
+            connector:
+                roots:
+                    uploads:
+                        driver: LocalFileSystem
+                        path: img/uploads
+                        upload_allow : ['image/jpg', 'image/jpeg', 'image/png']
+                        upload_deny: ['all']
+                        
