@@ -32,11 +32,11 @@
                             <span>{{webcrea.categorie}}</span>
                             <img src="img/miniature_web/{{webcrea.miniature}}" alt="">
                             <span>{{webcrea.url}}</span>
-                            <br><hr>
+                            <br>
                         </div>
                         <p class="col-8 px-2">{{webcrea.description}}</p>
                         <div class="col-2 d-flex flex-column">
-                            <a>modifier</a>
+                            <a  href="{{ path('admin_graphic_edit', {id: webcrea.id}) }}">modifier</a>
                             
                             <!-- Button trigger modal -->
                             <a href="" data-bs-toggle="modal" data-bs-target="#suppr_webcrea">
@@ -66,6 +66,7 @@
 
                         </div>
                     </li>
+                    <hr>
                 {% endfor %}
             </ul>
         </div>
@@ -82,7 +83,10 @@
                         </div>
                         <p class="col-8 px-2">{{graphiccrea.description}}</p>
                         <div class="col-2 d-flex flex-column">
-                            <a>modifier</a>
+                            
+                            <a  href="{{ path('admin_graphic_edit', {id: graphiccrea.id}) }}" >modifier
+                            </a>
+
                              <!-- Button trigger modal -->
                             <a href="" data-bs-toggle="modal" data-bs-target="#suppr_graphiccrea">
                             supprimer
@@ -109,6 +113,7 @@
                             </div>
                         </div>
                     </li>
+                    <hr>
                 {% endfor %}
             </ul>
         </div>
