@@ -289,6 +289,8 @@ class AdminController extends AbstractController
             $em->persist($message);
             $em->flush();
         }
+
+        return $this->redirectToRoute('messages');
     }
 
     /**
@@ -340,6 +342,31 @@ class AdminController extends AbstractController
         }
 
         return $this->redirectToRoute('admin');
+    }
+
+    /**
+     * @Route("/admin/message_delete/{id}", name="message_delete")
+     */
+    public function deleteMessage($id)
+    {
+
+        $em = $this->getDoctrine()->getManager();
+
+        $message_repo = $this->getDoctrine()->getRepository(Message::class);
+        $message = $message_repo->Find($id);
+
+        if(!$id)
+        {
+            throw $this->createNotFoundException('No ID found');
+        }
+
+        if($message != null)
+        {
+            $em->remove($message);
+            $em->flush();
+        }
+
+        return $this->redirectToRoute('messages');
     }
 
 

@@ -6,6 +6,8 @@
     <div class="row h-100">
         <div class="col-7 d-flex flex-column justify-content-center align-items-center">
         <h1 class='text-center mb-5'>contactez-moi</h1>
+
+        
         
         <p class="mt-5">
             envie d'un logo ? d'un site ? d'une maquette ?<br>
@@ -26,15 +28,30 @@
                 {{form_widget(message_form.email, {"attr":{"class" : "form-field w-75", "placeholder":"Email"}})}}
                 {{form_widget(message_form.phone_number, {"attr":{"class" : "form-field w-75", "placeholder":"Numéro de téléphone (facultatif)"}})}}
                 {{form_widget(message_form.message, {"attr":{"class" : "form-field w-75", "placeholder":"Message"}})}}
-                {{form_widget(message_form.save, {"attr":{"class" : "button"}})}}
+                {{form_widget(message_form.save, {"attr":{"class" : "button" }})}}
+                 {% for message in app.flashes('success') %}
+                    <div class="alert alert-success">
+                        {{ message }}
+                    </div>
+                {% endfor %}
+              
+
             {{ form_end(message_form)}}
         </div>
     </div>
 
     <style>
-    body{
-        height: 100vh;
-    }
-</style> 
+        body{
+            height: 100vh;
+        }
+    </style> 
+
+    <script>
+        var popover = new bootstrap.Popover(document.querySelector('.sent-popover'), {
+        container: 'body'
+        })
+
+     
+    </script
 {% endblock %}
 
