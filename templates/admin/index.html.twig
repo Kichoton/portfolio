@@ -8,7 +8,15 @@
     <h1 class="text-center">Admin Panel</h1>
 
     {# Compteur message non lu (modifié l'entité message, ajouter boolean lu/non) #}
-    <a href="{{path("messages")}}" class="button my-5">message</a>
+    {% set non_read = 0 %}
+    {% for message  in messages %} 
+        {% if message.isread is same as (false)  %}
+            {% set non_read = non_read + 1%}
+            {% endif %}
+    {% endfor %}
+    
+    <a href="{{path("messages")}}" class="button my-5">message&nbsp;<span class="badge bg-secondary">{{non_read}}</span></a>
+    
 </div>
 <div class="row">
     <div class="col-6 d-flex flex-column justify-content-center align-items-center">

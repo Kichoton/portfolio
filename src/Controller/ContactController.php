@@ -28,9 +28,9 @@ class ContactController extends AbstractController
 
                 $entityManager = $this->getDoctrine()->getManager();
                 $message->setSendAt(new \DateTime('now'));
+                $message->setIsRead(false);
                 $entityManager->persist($message);
                 $entityManager->flush();
-                return $this->redirectToRoute("admin");
             }
         }
         return $this->render('contact/index.html.twig', [

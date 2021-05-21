@@ -266,6 +266,32 @@ class AdminController extends AbstractController
     }
 
     /**
+     * @Route("/admin/is_read/{id}", name="is_read")
+     */
+    public function message_is_read($id)
+    {
+
+        $em = $this->getDoctrine()->getManager();
+
+        $message_repo = $this->getDoctrine()->getRepository(Message::class);
+        $message = $message_repo->Find($id);
+
+        if(!$id)
+        {
+            throw $this->createNotFoundException('No ID found');
+        }
+
+
+        if($message != null)
+        {
+            $message->setIsRead('true');
+
+            $em->persist($message);
+            $em->flush();
+        }
+    }
+
+    /**
      * @Route("/admin/graphiccrea_delete/{id}", name="graphiccrea_delete")
      */
     public function deleteGraphicCreation($id)
