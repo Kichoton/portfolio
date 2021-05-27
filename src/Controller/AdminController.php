@@ -206,6 +206,7 @@ class AdminController extends AbstractController
                                     'mimeTypes' => [
                                         'image/jpeg',
                                         'image/png',
+                                        'image/jpg',
                                     ],
                                     'mimeTypesMessage' => 'Please send Jpeg or PNG file',
                                 ])
