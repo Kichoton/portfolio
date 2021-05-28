@@ -6,11 +6,13 @@
     <div class="row h-100">
         <div class="col-7 d-flex flex-column justify-content-center align-items-center">
         <h1 class='text-center mb-5'>contactez-moi</h1>
+
+        
         
         <p class="mt-5">
-            envie d'un logo ? d'un site ? d'une maquette ?<br>
-            n'hésitez pas à me contacter ou à consulter mes différents réseaux sociaux.<br>
-            Pour toutes demandes complémentaires, renseignements, encouragements, avis... n'hésitez pas a me contacter via le formulaire de contact.
+        Envie d'un logo ? D'un site ? D'une maquette ?<br>
+            N'hésitez pas à me contacter ou à consulter mes différents réseaux sociaux.<br>
+            Pour toutes demandes complémentaires, renseignements, encouragements, avis... <br>N'hésitez pas a me contacter via le formulaire de contact.
             <br><br>
             à bientot !
         </p>
@@ -26,15 +28,24 @@
                 {{form_widget(message_form.email, {"attr":{"class" : "form-field w-75", "placeholder":"Email"}})}}
                 {{form_widget(message_form.phone_number, {"attr":{"class" : "form-field w-75", "placeholder":"Numéro de téléphone (facultatif)"}})}}
                 {{form_widget(message_form.message, {"attr":{"class" : "form-field w-75", "placeholder":"Message"}})}}
-                {{form_widget(message_form.save, {"attr":{"class" : "button"}})}}
+                {{form_widget(message_form.save, {"attr":{"class" : "button" }})}}
+                 {% for message in app.flashes('success') %}
+                    <div class="alert alert-success">
+                        {{ message }}
+                    </div>
+                {% endfor %}
+              
+
             {{ form_end(message_form)}}
         </div>
     </div>
 
     <style>
-    body{
-        height: 100vh;
-    }
-</style> 
+        body{
+            height: 100vh;
+        }
+    </style> 
+
+
 {% endblock %}
 

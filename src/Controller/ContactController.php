@@ -19,6 +19,8 @@ class ContactController extends AbstractController
         $message_form = $this->createForm(MessageType::class);
         $message_form->handleRequest($request);
 
+        
+
         $message_repo = $this->getDoctrine()->getRepository(Message::class);
         $messages = $message_repo->findAll();
 
@@ -28,9 +30,13 @@ class ContactController extends AbstractController
 
                 $entityManager = $this->getDoctrine()->getManager();
                 $message->setSendAt(new \DateTime('now'));
+                $message->setIsRead(false);
                 $entityManager->persist($message);
                 $entityManager->flush();
-                return $this->redirectToRoute("admin");
+
+                $this->addFlash('success', 'Le message est envoyé ! ');
+
+                $message_form = $this->createForm(MessageType::class);
             }
         }
         return $this->render('contact/index.html.twig', [
@@ -38,3 +44,5 @@ class ContactController extends AbstractController
         ]);
     }
 }
+
+

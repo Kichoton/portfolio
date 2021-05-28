@@ -8,7 +8,15 @@
     <h1 class="text-center">Admin Panel</h1>
 
     {# Compteur message non lu (modifié l'entité message, ajouter boolean lu/non) #}
-    <a href="{{path("messages")}}" class="button my-5">message</a>
+    {% set non_read = 0 %}
+    {% for message  in messages %} 
+        {% if message.isread is same as (false)  %}
+            {% set non_read = non_read + 1%}
+            {% endif %}
+    {% endfor %}
+    
+    <a href="{{path("messages")}}" class="button my-5">message&nbsp;<span class="badge bg-secondary">{{non_read}}</span></a>
+    
 </div>
 <div class="row">
     <div class="col-6 d-flex flex-column justify-content-center align-items-center">
@@ -32,11 +40,11 @@
                             <span>{{webcrea.categorie}}</span>
                             <img src="img/miniature_web/{{webcrea.miniature}}" alt="">
                             <span>{{webcrea.url}}</span>
-                            <br><hr>
+                            <br>
                         </div>
                         <p class="col-8 px-2">{{webcrea.description}}</p>
                         <div class="col-2 d-flex flex-column">
-                            <a>modifier</a>
+                            <a  href="{{ path('admin_graphic_edit', {id: webcrea.id}) }}">modifier</a>
                             
                             <!-- Button trigger modal -->
                             <a href="" data-bs-toggle="modal" data-bs-target="#suppr_webcrea">
@@ -66,6 +74,7 @@
 
                         </div>
                     </li>
+                    <hr>
                 {% endfor %}
             </ul>
         </div>
@@ -82,7 +91,10 @@
                         </div>
                         <p class="col-8 px-2">{{graphiccrea.description}}</p>
                         <div class="col-2 d-flex flex-column">
-                            <a>modifier</a>
+                            
+                            <a  href="{{ path('admin_graphic_edit', {id: graphiccrea.id}) }}" >modifier
+                            </a>
+
                              <!-- Button trigger modal -->
                             <a href="" data-bs-toggle="modal" data-bs-target="#suppr_graphiccrea">
                             supprimer
@@ -109,6 +121,7 @@
                             </div>
                         </div>
                     </li>
+                    <hr>
                 {% endfor %}
             </ul>
         </div>

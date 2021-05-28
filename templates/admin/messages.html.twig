@@ -5,22 +5,53 @@
 
 {% block body %}
 
+    
+
     <ul class="w-100">
-        {% for message in messages %} 
+        {% for message in messages | reverse %} 
             <li class="row mb-2">
-                <div class="col-3 d-flex flex-column">
+                <div class="col-2 d-flex flex-column">
                     <span>{{message.name}}</span>
                     <span>{{message.email}}</span>
                     <span>{{message.phonenumber}}</span>
-                    <span>{{message.sendat|date('l d F Y')}}</span>
-                    <a>repondre</a>
+                    <span>{{message.sendat|date('l d F Y | H:i')}}</span>
                     
                 </div>
-                <p class="col-9 px-2">{{message.message}}</p>
-                
+                <p class="col-8 px-2">{{message.message}}</p>
+                <div class="col-2">
+                    <a class="btn btn-primary">repondre</a>
+                    <a class="btn{% if message.isread is same as (true) %} btn-success disabled {% else %} btn-danger{% endif %}" href="{{ path('is_read', {id: message.id}) }}">Lu</a>
+
+                    <a href="" data-bs-toggle="modal" class="btn btn-dark" data-bs-target="#suppr_message">
+                            x
+                            </a>
+
+                            <!-- Modal -->
+                            <div class="modal fade" id="suppr_message" tabindex="-1" aria-labelledby="suppr_messageLabel" aria-hidden="true">
+                                <div class="modal-dialog">
+                                    <div class="modal-content">
+                                    <div class="modal-header">
+                                        <h5 class="modal-title" id="suppr_messageLabel">Suppression de post</h5>
+                                        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                                    </div>
+                                    <div class="modal-body">
+                                        On est sure de supprimer ce post ? 
+                                        <p>{{message.name}}</p>
+                                    </div>
+                                    <div class="modal-footer">
+                                        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Oups</button>
+                                        <a  href="{{ path('message_delete', {id: message.id}) }}" type="button" class="btn btn-primary">ca dégage</a>
+                                    </div>
+                                    </div>
+                                </div>
+                            </div>
+
+                </div>                
                 <br><hr>
             </li>
         {% endfor %}
     </ul>
 
 {% endblock %}
+
+
