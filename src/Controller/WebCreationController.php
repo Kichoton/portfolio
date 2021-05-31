@@ -10,7 +10,7 @@ use Symfony\Component\Routing\Annotation\Route;
 class WebCreationController extends AbstractController
 {
     /**
-     * @Route("/creation/web", name="web_creation")
+     * @Route("/web", name="web_creation")
      */
     public function index(): Response
     {

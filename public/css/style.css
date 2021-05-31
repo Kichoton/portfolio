@@ -28,7 +28,8 @@ body{
 
 .button{
     text-decoration: none;
-    display:block; 
+    position: relative;
+    display:inline-block; 
     color:black;
     background-color: #fff;
     border : 1px solid black; 
@@ -39,9 +40,179 @@ body{
 }
 
 .button:hover{
-    color: black;
+    color: blue;
 }
 
+.button:before {
+content: '';
+position: absolute;
+z-index: 1000;
+top: 0px;
+left: 0px;
+/*   width: 100%;
+height: 100%; */
+width: 0;
+height: 0;
+background: transparent;
+/*   border: 2px solid blue; */
+border: 1px solid transparent;
+}
+
+.button-anim-in:before {
+animation: animate-border-in 0.3s linear forwards;
+}
+.button-anim-out:before {
+animation: animate-border-out 0.3s linear forwards;
+}
+
+@keyframes animate-border-in {
+0% {
+    width: 0;
+    height: 0;
+/*     border: 2px solid transparent; */
+    border-top-color: blue;
+    border-right-color: transparent;
+    border-bottom-color: transparent;
+    border-left-color: transparent;
+}
+50% {
+    width: 100%;
+    height: 0;
+/*     border: 2px solid blue; */
+    border-top-color: blue;
+    border-right-color: blue;
+    border-bottom-color: transparent;
+    border-left-color: transparent;
+}  
+100% {
+    width: 100%;
+    height: 100%;
+/*     border: 2px solid blue; */
+    border-top-color: blue;
+    border-right-color: blue;
+    border-bottom-color: transparent;
+    border-left-color: transparent;
+}
+}
+@keyframes animate-border-out {
+0% {  
+width: 100%;
+    height: 100%;
+/*     border: 2px solid blue; */
+    border-top-color: blue;
+    border-right-color: blue;
+    border-bottom-color: transparent;
+    border-left-color: transparent;
+}
+50% {
+    width: 100%;
+    height: 0;
+/*     border: 2px solid blue; */
+    border-top-color: blue;
+    border-right-color: blue;
+    border-bottom-color: transparent;
+    border-left-color: transparent;
+}  
+100% {
+    width: 0;
+    height: 0;
+/*     border: 2px solid transparent; */
+    /* border-top-color: blue; */
+    border-top-color: transparent;
+    border-right-color: transparent;
+    border-bottom-color: transparent;
+    border-left-color: transparent;
+}
+}
+
+
+/*****************************/
+
+
+.button:after {
+content: '';
+position: absolute;
+z-index: 1000;
+top: 0px;
+left: 0px;
+/*   width: 100%;
+height: 100%; */
+width: 0;
+height: 0;
+background: transparent;
+/*   border: 2px solid blue; */
+border: 1px solid transparent;
+}
+
+.button-anim-in:after {
+animation: animate-border-2-in 0.3s linear forwards;
+}
+
+.button-anim-out:after {
+animation: animate-border-2-out 0.3s linear forwards;
+}
+
+@keyframes animate-border-2-in {
+0% {
+    width: 0;
+    height: 0;
+/*     border: 2px solid transparent; */
+    border-top-color: transparent;
+    border-right-color: transparent;
+    border-bottom-color: transparent;
+    border-left-color: blue;
+}
+50% {
+    width: 0;
+    height: 100%;
+/*     border: 2px solid blue; */
+    border-top-color: transparent;
+    border-right-color: transparent;
+    border-bottom-color: blue;
+    border-left-color: blue;
+}  
+100% {
+    width: 100%;
+    height: 100%;
+/*     border: 2px solid blue; */
+    border-top-color: transparent;
+    border-right-color: transparent;
+    border-bottom-color: blue;
+    border-left-color: blue;
+}
+}
+
+@keyframes animate-border-2-out {
+0% {
+    
+    width: 100%;
+    height: 100%;
+/*     border: 2px solid blue; */
+    border-top-color: transparent;
+    border-right-color: transparent;
+    border-bottom-color: blue;
+    border-left-color: blue;
+}
+50% {
+    width: 0;
+    height: 100%;
+/*     border: 2px solid blue; */
+    border-top-color: transparent;
+    border-right-color: transparent;
+    border-bottom-color: blue;
+    border-left-color: blue;
+}  
+100% {
+    width: 0;
+    height: 0;
+/*     border: 2px solid transparent; */
+    border-top-color: transparent;
+    border-right-color: transparent;
+    border-bottom-color: transparent;
+    /* border-left-color: blue; */
+    border-left-color: transparent;
+}
+}
 
 
 /* Contact */
@@ -58,3 +229,4 @@ body{
     color: black;
     opacity: 1;
 }
+

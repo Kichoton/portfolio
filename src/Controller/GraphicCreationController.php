@@ -10,7 +10,7 @@ use Symfony\Component\Routing\Annotation\Route;
 class GraphicCreationController extends AbstractController
 {
     /**
-     * @Route("/creation/graphic", name="graphic_creation")
+     * @Route("/graphisme", name="graphic_creation")
      */
     public function index(): Response
     {

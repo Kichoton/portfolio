@@ -24,14 +24,17 @@ les autres pages doivent donc commencer par
             <a class="navbar-brand" href="{{path('index')}}">
                 <img src="/img/logo-t.png" alt="" height="24">
             </a>
-            <a href="{{path("about_me")}}">a propos</a>
-            <a href="{{path("contact")}}">me contacter</a>
-            <a href="{{path("web_creation")}}">web</a>
-            <a href="{{path("graphic_creation")}}">graphisme</a>
+            <a id="about_me" href="{{path("about_me")}}">a propos</a>
+            <a id="contact" href="{{path("contact")}}">me contacter</a>
+            <a id="web" href="{{path("web_creation")}}">web</a>
+            <a id="graphisme" href="{{path("graphic_creation")}}">graphisme</a>
         </nav>
-        {% block body %}{% endblock %}
+        {% block body %}
+        {% endblock %}
         {% block javascripts %}{% endblock %}
         <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0/dist/js/bootstrap.bundle.min.js" integrity="sha384-p34f1UUtsS3wqzfto5wAAmdvj+osOnFyQFpp4Ua3gs/ZVWx6oOypYoCJhGGScy+8" crossorigin="anonymous"></script>
+        <script src="https://code.jquery.com/jquery-3.6.0.js"></script>
+        <script src="/js/script.js"></script>
         
     </body>
 </html>
