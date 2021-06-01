@@ -1,0 +1,12 @@
+.a-crea{
+    z-index : 2;    
+}
+
+.a-crea>h3{
+    color : white
+}
+
+.sail-crea{
+    background-color: black;
+    opacity : 0.6;
+}

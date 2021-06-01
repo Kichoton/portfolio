@@ -27,4 +27,3 @@ if (url.includes("graphisme")){
     $graphisme.replaceWith($('<span>' + $graphisme.text() + '</span>'));
 }
 
-// créas

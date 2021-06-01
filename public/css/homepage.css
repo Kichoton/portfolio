@@ -13,13 +13,16 @@ body{
 }
 
 #logo-t-tete{
-   
+    width : 55%;
+}
 
+#photo-ts{
+    width : 45%
 }
 
 h1{
     top:2%;
-    right: 0%
+    right: 40%
 }
 
 @media screen and (min-width: 1200px) {
@@ -32,4 +35,30 @@ h1{
     p {
         font-size: 7vw;
     }
+
+    #photo-ts{
+        width : 90%;
+    }
+
+    #logo-t-tete{
+        width : 20%;
+    }
+
+    h1{
+        top:2%;
+        right: 0%
+    }
 } 
+
+@media screen and (min-width: 2000px) {
+    #photo-ts{
+        width : 50%;
+    }
+    #logo-t-tete{
+        width : 10%;
+    }
+    h1{
+        top:2%;
+        right: 45%
+    }
+  } 
