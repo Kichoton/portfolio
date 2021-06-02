@@ -19,22 +19,22 @@ class WebCreationRepository extends ServiceEntityRepository
         parent::__construct($registry, WebCreation::class);
     }
 
-    // /**
-    //  * @return WebCreation[] Returns an array of WebCreation objects
-    //  */
-    /*
-    public function findByExampleField($value)
+    /**
+      * @return WebCreation[] Returns an array of WebCreation objects
+      */
+    
+    public function findBySlug($value)
     {
-        return $this->createQueryBuilder('w')
-            ->andWhere('w.exampleField = :val')
+        return $this->createQueryBuilder('web')
+            ->andWhere('web.slug = :val')
             ->setParameter('val', $value)
-            ->orderBy('w.id', 'ASC')
+            ->orderBy('web.id', 'ASC')
             ->setMaxResults(10)
             ->getQuery()
             ->getResult()
         ;
     }
-    */
+    
 
     /*
     public function findOneBySomeField($value): ?WebCreation

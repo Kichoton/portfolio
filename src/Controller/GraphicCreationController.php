@@ -23,4 +23,19 @@ class GraphicCreationController extends AbstractController
             "graphics" => $graphics,
         ]);
     }
+
+    /**
+     * @Route("/graphic/{slug}", name="graphic_single")
+     */
+    public function single_graphic($slug): Response
+    {
+       
+        $graphic_repo = $this->getDoctrine()->getRepository(GraphicCreation::class);
+        $graphic = $graphic_repo->findBySlug($slug);
+
+    
+        return $this->render('graphic_creation/graphic_single.html.twig', [
+            "graphic" => $graphic,
+        ]);
+    }
 }

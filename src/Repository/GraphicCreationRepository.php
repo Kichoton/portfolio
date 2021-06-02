@@ -19,22 +19,22 @@ class GraphicCreationRepository extends ServiceEntityRepository
         parent::__construct($registry, GraphicCreation::class);
     }
 
-    // /**
-    //  * @return GraphicCreation[] Returns an array of GraphicCreation objects
-    //  */
-    /*
-    public function findByExampleField($value)
+    /**
+     * @return GraphicCreation[] Returns an array of GraphicCreation objects
+     */
+    
+    public function findBySlug($value)
     {
-        return $this->createQueryBuilder('g')
-            ->andWhere('g.exampleField = :val')
+        return $this->createQueryBuilder('graphic')
+            ->andWhere('graphic.slug = :val')
             ->setParameter('val', $value)
-            ->orderBy('g.id', 'ASC')
+            ->orderBy('graphic.id', 'ASC')
             ->setMaxResults(10)
             ->getQuery()
             ->getResult()
         ;
     }
-    */
+    
 
     /*
     public function findOneBySomeField($value): ?GraphicCreation

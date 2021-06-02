@@ -4,6 +4,7 @@ namespace App\Entity;
 
 use App\Repository\WebCreationRepository;
 use Doctrine\ORM\Mapping as ORM;
+use Gedmo\Mapping\Annotation as Gedmo;
 
 /**
  * @ORM\Entity(repositoryClass=WebCreationRepository::class)
@@ -16,6 +17,15 @@ class WebCreation
      * @ORM\Column(type="integer")
      */
     private $id;
+
+    /**
+     * @var string
+     * 
+     * @Gedmo\Slug(fields={"name"})
+     * 
+     * @ORM\Column(type="string", length=255, nullable=false)
+     */
+    private $slug;
 
     /**
      * @ORM\Column(type="string", length=255)
@@ -55,6 +65,18 @@ class WebCreation
     public function getId(): ?int
     {
         return $this->id;
+    }
+
+    public function getSlug(): ?string
+    {
+        return $this->slug;
+    }
+
+    public function setSlug(string $slug): self
+    {
+        $this->slug = $slug;
+
+        return $this;
     }
 
     public function getName(): ?string

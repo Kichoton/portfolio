@@ -17,11 +17,25 @@ class WebCreationController extends AbstractController
        
         $web_repo = $this->getDoctrine()->getRepository(WebCreation::class);
         $webs = $web_repo->findAll();
-
-    
     
         return $this->render('web_creation/index.html.twig', [
             "webs" => $webs,
         ]);
     }
+
+     /**
+     * @Route("/web/{slug}", name="web_single")
+     */
+    public function single_web($slug): Response
+    {
+       
+        $web_repo = $this->getDoctrine()->getRepository(WebCreation::class);
+        $web = $web_repo->findBySlug($slug);
+
+    
+        return $this->render('web_creation/web_single.html.twig', [
+            "web" => $web,
+        ]);
+    }
+
 }

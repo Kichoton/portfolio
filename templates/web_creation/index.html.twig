@@ -16,7 +16,7 @@
         
             {% for web  in webs | reverse%}
                 <div class="crea d-flex align-items-center justify-content-center col-md-3 col-6 p-0 m-0 position-relative">
-                    <a class="a-crea d-flex align-items-center justify-content-center text-center h-100 w-100 position-absolute" href="">
+                    <a class="a-crea d-flex align-items-center justify-content-center text-center h-100 w-100 position-absolute" href="{{path('web_single', {slug: web.slug})}}">
                         <h3 class="name-crea">{{web.name}}</h3>
                     </a>
                     <span class="sail-crea h-100 w-100 position-absolute"></span>
