@@ -1,3 +1,9 @@
+var popoverTriggerList = [].slice.call(document.querySelectorAll('[data-bs-toggle="popover"]'))
+var popoverList = popoverTriggerList.map(function (popoverTriggerEl) {
+  return new bootstrap.Popover(popoverTriggerEl)
+})
+
+
 $(".button").mouseenter(function(e) {
     $(this).removeClass("button-anim-out")
     $(this).addClass("button-anim-in")
@@ -12,18 +18,25 @@ var url = window.location.href;
 
 if( url.includes("contact")){
     $contact = $('#contact')
-    $contact.replaceWith($('<span>' + $contact.text() + '</span>')); 
+    $contact.addClass('disabled active'); 
+    $contact.attr('tabindex', "-1"); 
+    $contact.attr('aria-disabled', 'true'); 
 }
 if (url.includes("about_me")){
     $about_me = $('#about_me')
-    $about_me.replaceWith($('<span>' + $about_me.text() + '</span>'));
+    $about_me.addClass('disabled active'); 
+    $about_me.attr('tabindex', "-1"); 
+    $about_me.attr('aria-disabled', 'true'); 
 }
 if (url.includes("web")){
     $web = $('#web')
-    $web.replaceWith($('<span>' + $web.text() + '</span>'));
+    $web.addClass('disabled active'); 
+    $web.attr('tabindex', "-1"); 
+    $web.attr('aria-disabled', 'true'); 
 }
 if (url.includes("graphisme")){
     $graphisme = $('#graphisme')
-    $graphisme.replaceWith($('<span>' + $graphisme.text() + '</span>'));
+    $graphisme.addClass('disabled active'); 
+    $graphisme.attr('tabindex', "-1"); 
+    $graphisme.attr('aria-disabled', 'true'); 
 }
-
