@@ -48,51 +48,6 @@ class AdminController extends AbstractController
 
         
     }
-
-    /**
-     * @Route("/admin/web_create_", name="admin_web_create_")
-     * @Route("/admin/{id}/web_edit_", name="admin_web_edit_")
-     */
-    /**public function webAdmin($id = null, Request $request, FileUploader $fileUploader)
-    {
-        $web_form = $this->createForm(WebCreationType::class);
-        $web_form->handleRequest($request);
-
-        $web_repo = $this->getDoctrine()->getRepository(WebCreation::class);
-        $webs = $web_repo->findAll();
-        $entityManager = $this->getDoctrine()->getManager();
-
-        if($id){
-            
-            $web_edit = $web_repo->Find($id);
-            $web_form->get('name')->setData($web_edit->getName());
-            $web_form->get('client')->setData($web_edit->getClient());
-            $web_form->get('categorie')->setData($web_edit->getCategorie());
-            $web_form->get('description')->setData($web_edit->getDescription());
-            $web_form->get('url')->setData($web_edit->getUrl());
-        }
-
-        if ($web_form->isSubmitted()){
-            if($web_form->isValid()){
-                if(!$id){
-                    $web = $web_form->getData();
-                    $miniature_web = $web_form["miniature"]->getData();
-                    $miniature_web_name = $fileUploader->upload($miniature_web, "img/miniature_web");
-                    $web->setMiniature($miniature_web_name);
-                }
-
-                $entityManager->persist($web);
-                $entityManager->flush();
-                return $this->redirectToRoute("admin");
-            }
-        }
-    
-        return $this->render('admin/web_form.html.twig', [
-            "webcreas" => $webs,
-            "webcrea_form" => $web_form->createView()
-        ]); 
-    }
- */
     
     /**
      * @Route("/admin/web_create", name="admin_web_create")
@@ -152,9 +107,6 @@ class AdminController extends AbstractController
         if($web_form->isSubmitted() && $web_form->isValid()){
             if(!$web->getId()){
                 $web->setCreatedAt (new \DateTime('now'));
-                var_dump($web_form['miniature']);
-                var_dump($web->getMiniature());
-                die;
                 $miniature_web = $web_form["miniature"]->getData();
                 $miniature_web_name = $fileUploader->upload($miniature_web, "img/miniature_web");
                 $web->setMiniature($miniature_web_name);
@@ -215,7 +167,9 @@ class AdminController extends AbstractController
                                 ])
                             ],
                         ])
-                         ->add('description')
+                         ->add('description',CKEditorType::class, array(
+                            'config_name' => 'my_config'
+                         ))
                          ->add('url')
                          ->add('save', SubmitType::class,[
                             "label"=>'Envoyer',
@@ -269,33 +223,7 @@ class AdminController extends AbstractController
         
     }
 
-    /**
-     * @Route("/admin/is_read/{id}", name="is_read")
-     */
-    public function message_is_read($id)
-    {
-
-        $em = $this->getDoctrine()->getManager();
-
-        $message_repo = $this->getDoctrine()->getRepository(Message::class);
-        $message = $message_repo->Find($id);
-
-        if(!$id)
-        {
-            throw $this->createNotFoundException('No ID found');
-        }
-
-
-        if($message != null)
-        {
-            $message->setIsRead('true');
-
-            $em->persist($message);
-            $em->flush();
-        }
-
-        return $this->redirectToRoute('messages');
-    }
+    
 
     /**
      * @Route("/admin/graphiccrea_delete/{id}", name="graphiccrea_delete")
@@ -373,5 +301,31 @@ class AdminController extends AbstractController
         return $this->redirectToRoute('messages');
     }
 
+    /**
+     * @Route("/admin/is_read/{id}", name="is_read")
+     */
+    public function message_is_read($id)
+    {
 
+        $em = $this->getDoctrine()->getManager();
+
+        $message_repo = $this->getDoctrine()->getRepository(Message::class);
+        $message = $message_repo->Find($id);
+
+        if(!$id)
+        {
+            throw $this->createNotFoundException('No ID found');
+        }
+
+
+        if($message != null)
+        {
+            $message->setIsRead('true');
+
+            $em->persist($message);
+            $em->flush();
+        }
+
+        return $this->redirectToRoute('messages');
+    }
 }

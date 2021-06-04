@@ -7,7 +7,7 @@
 
     
 
-    <ul class="w-100">
+    <ul class="w-100 mt-5">
         {% for message in messages | reverse %} 
             <li class="row mb-2">
                 <div class="col-2 d-flex flex-column">
@@ -22,18 +22,18 @@
                     <a class="btn btn-primary">repondre</a>
                     <a class="btn{% if message.isread is same as (true) %} btn-success disabled {% else %} btn-danger{% endif %}" href="{{ path('is_read', {id: message.id}) }}">Lu</a>
 
-                    <a href="" data-bs-toggle="modal" class="btn btn-dark" data-bs-target="#suppr_message">
+                    <a href="" data-bs-toggle="modal" class="btn btn-dark" data-bs-target="#suppr_message_{{message.id}}">
                             x
                             </a>
 
                             <!-- Modal -->
-                            <div class="modal fade" id="suppr_message" tabindex="-1" aria-labelledby="suppr_messageLabel" aria-hidden="true">
+                            <div class="modal fade" id="suppr_message_{{message.id}}" tabindex="-1" aria-labelledby="suppr_messageLabel" aria-hidden="true">
                                 <div class="modal-dialog">
                                     <div class="modal-content">
-                                    <div class="modal-header">
-                                        <h5 class="modal-title" id="suppr_messageLabel">Suppression de post</h5>
-                                        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-                                    </div>
+                                        <div class="modal-header">
+                                            <h5 class="modal-title" id="suppr_messageLabel">Suppression de post</h5>
+                                            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                                        </div>
                                     <div class="modal-body">
                                         On est sure de supprimer ce post ? 
                                         <p>{{message.name}}</p>
