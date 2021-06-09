@@ -4,7 +4,7 @@
 
 {% block body %}
     <div class="row h-100">
-        <div class="col-lg-7 col-12 d-flex flex-column justify-content-center align-items-center">
+        <div class="my-5 col-lg-7 col-12 d-flex flex-column justify-content-center align-items-center">
             <h1 class='text-center mb-5'>contactez-moi</h1>
             
             <p class="mt-5">
@@ -15,7 +15,7 @@
                 à bientot !
             </p>
         </div>
-        <div class="my-lg-0 my-4 col-lg-1 col-4 d-flex flex-lg-column flex-row justify-content-center align-items-center">
+        <div class="my-lg-0 my-4 col-lg-1 col-7 d-flex flex-lg-column flex-row justify-content-center align-items-center">
             <a class="my-lg-2 my-0 mx-lg-0 mx-3" href="https://github.com/Kichoton"><img class="img-fluid" src='/img/github.svg'></a>
             <a class="my-lg-2 my-0 mx-lg-0 mx-3" href="https://www.linkedin.com/in/theo-saez/"><img class="img-fluid" src='/img/linkedin.svg'></a>
         </div>
@@ -40,8 +40,13 @@
     <style>
         body{
             height: 100vh;
-            overflow: hidden; /* Hide scrollbars */
+            overflow: auto; /* Hide scrollbars */
 
+        }
+        @media screen and (min-width: 576px) {
+            body {
+                overflow: hidden;
+            }
         }
     </style> 
 
