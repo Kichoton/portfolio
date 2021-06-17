@@ -19,7 +19,7 @@
                 </div>
                 <p class="col-8 px-2">{{message.message}}</p>
                 <div class="col-2">
-                    <a class="btn btn-primary">repondre</a>
+                    <a href="mailto:{{message.email}}?subject=RE : {{message.name}} - {{message.message}}&body=%0D%0A%0D%0A------------------------------------%0D%0A{{message.message}}" class="btn btn-primary">repondre</a>
                     <a class="btn{% if message.isread is same as (true) %} btn-success disabled {% else %} btn-danger{% endif %}" href="{{ path('is_read', {id: message.id}) }}">Lu</a>
 
                     <a href="" data-bs-toggle="modal" class="btn btn-dark" data-bs-target="#suppr_message_{{message.id}}">
@@ -46,7 +46,7 @@
                                 </div>
                             </div>
 
-                </div>                
+                </div> 
                 <br><hr>
             </li>
         {% endfor %}

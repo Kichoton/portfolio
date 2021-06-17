@@ -185,6 +185,7 @@
     "studio-42/elfinder": {
         "version": "2.1.57"
     },
+
     "symfony/apache-pack": {
         "version": "1.0",
         "recipe": {
@@ -489,6 +490,7 @@
     "symfony/string": {
         "version": "v5.2.6"
     },
+
     "symfony/test-pack": {
         "version": "v1.0.7"
     },
