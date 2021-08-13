@@ -21,7 +21,7 @@ class WebCreation
     /**
      * @var string
      * 
-     * @Gedmo\Slug(fields={"name"})
+     * @Gedmo\Slug(fields={"name","client","categorie"})
      * 
      * @ORM\Column(type="string", length=255, nullable=false)
      */

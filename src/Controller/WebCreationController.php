@@ -30,8 +30,7 @@ class WebCreationController extends AbstractController
     {
        
         $web_repo = $this->getDoctrine()->getRepository(WebCreation::class);
-        $web = $web_repo->findBySlug($slug);
-
+        $web = $web_repo->findOneBy(array('slug' => $slug));
     
         return $this->render('web_creation/web_single.html.twig', [
             "web" => $web,

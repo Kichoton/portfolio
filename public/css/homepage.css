@@ -10,8 +10,9 @@ body{
 
 }
 
-#logo-t-tete{
-    width : 25% !important;
+#logo-noir{
+    width : 50% ;
+    margin:auto;
 }
 
 #photo-ts{
@@ -38,7 +39,7 @@ h1{
         width : 90%;
     }
 
-    #logo-t-tete{
+    #logo-noir{
         width : 20%;
     }
 
@@ -52,8 +53,8 @@ h1{
     #photo-ts{
         width : 50%;
     }
-    #logo-t-tete{
-        width : 10%;
+    #logo-noir{
+        width : 50%   
     }
     h1{
         top:2%;

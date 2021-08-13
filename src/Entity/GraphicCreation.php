@@ -22,7 +22,7 @@ class GraphicCreation
      /**
      * @var string
      * 
-     * @Gedmo\Slug(fields={"name"})
+     * @Gedmo\Slug(fields={"name","client"})
      * 
      * @ORM\Column(type="string", length=255, nullable=false)
      */

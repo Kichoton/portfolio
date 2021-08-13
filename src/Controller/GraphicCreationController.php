@@ -16,8 +16,6 @@ class GraphicCreationController extends AbstractController
     {
         $graphic_repo = $this->getDoctrine()->getRepository(GraphicCreation::class);
         $graphics = $graphic_repo->findAll();
-
-    
     
         return $this->render('graphic_creation/index.html.twig', [
             "graphics" => $graphics,
@@ -31,7 +29,7 @@ class GraphicCreationController extends AbstractController
     {
        
         $graphic_repo = $this->getDoctrine()->getRepository(GraphicCreation::class);
-        $graphic = $graphic_repo->findBySlug($slug);
+        $graphic = $graphic_repo->findOneBy(array('slug' => $slug));
 
     
         return $this->render('graphic_creation/graphic_single.html.twig', [

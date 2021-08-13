@@ -29,7 +29,6 @@ class GraphicCreationRepository extends ServiceEntityRepository
             ->andWhere('graphic.slug = :val')
             ->setParameter('val', $value)
             ->orderBy('graphic.id', 'ASC')
-            ->setMaxResults(10)
             ->getQuery()
             ->getResult()
         ;

@@ -29,7 +29,6 @@ class WebCreationRepository extends ServiceEntityRepository
             ->andWhere('web.slug = :val')
             ->setParameter('val', $value)
             ->orderBy('web.id', 'ASC')
-            ->setMaxResults(10)
             ->getQuery()
             ->getResult()
         ;
