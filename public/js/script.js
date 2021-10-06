@@ -42,7 +42,6 @@ if (url.includes("graphisme")){
 }
 $message_sent = $(".message-sent")
 
-console.log($message_sent.length)
 if($message_sent.length > 0){
     $("#message_save").replaceWith('')
 }
