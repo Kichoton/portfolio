@@ -1,0 +1,13 @@
+/* 
+bleu foncé : #162057
+bleu clair : #20388A
+jaune : #EAE337
+*/
+
+body{
+    background-color: #162057;
+}
+
+.nav-link{
+    color : #EAE337 !important;
+}

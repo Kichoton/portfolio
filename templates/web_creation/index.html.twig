@@ -10,12 +10,14 @@
 
 <h1 class='my-5'>création web</h1>
 <p class="mb-3
-"> Pratiquant le développement web depuis 2019 la plupart de ces créations ont étaient crées dans un cadre personnel.<br>
+"> Titulaire d’un titre professionnel développeur web et web de niveau 5 depuis décembre 2019, j’ai eu la chance d’intégrer l’équipe PEPITE Santé dans le cadre d’un stage de quelques mois où j’ai pu découvrir et apprécier le métier de développeur.
+Les créations ci-dessous ont été développées principalement en HTML, CSS, JavaScript et PHP.
+<br>
 </p>
     <div class="m-0 p-0 row h-100">
         
             {% for web  in webs | reverse%}
-                <div class="crea d-flex align-items-center justify-content-center col-md-3 col-6 p-0 m-0 position-relative">
+                <div class="crea d-flex align-items-center justify-content-center col-md-3 col-6 p-2 m-0 position-relative">
                     <a class="a-crea d-flex align-items-center justify-content-center text-center h-100 w-100 position-absolute" href="{{path('web_single', {slug: web.slug})}}">
                         <h3 class="name-crea">{{web.name}}</h3>
                     </a>

@@ -10,15 +10,18 @@
 
 <h1 class='my-5'>graphisme</h1>
 <p class="mb-3"> 
-    N'ayant jamais fais d'étude dans le graphisme j'ai du apprendre par moi en 2018 en tant que community manager d'un club de foot.<br>
-    Par la suite j'ai pris enormement de plaisir à decouvrir les différents outils et à créer différents visuelles, logo et affiches. 
+    Autoformé aux outils de design tels que Illustrator ou Photoshop au cours d’un service civique au sein du club de football du Stade Bordelais en 2018, je prends depuis énormément de plaisir à l’utilisation de ces outils.<br>
+Que ce soit dans le cadre professionnel ou bénévole, pour la réalisation d’affiches, de logos, de schémas, de designs ou de projets personnels en tout genre, l’utilisation de ces outils nécessite un apprentissage continu.
+
+ 
 <br><br>
-    Voici un apercu de mes capacités. 
+Vous pouvez observer mon style et ma progression ci-dessous.
+
 </p>
     <div class="m-0 p-0 row h-100">
         
             {% for graphic  in graphics | reverse%}
-               <div class="crea d-flex align-items-center justify-content-center col-md-3 col-6 p-0 m-0 position-relative">
+               <div class="crea d-flex align-items-center justify-content-center col-md-3 col-6 p-2 m-0 position-relative">
                     <a class="a-crea d-flex align-items-center justify-content-center text-center h-100 w-100 position-absolute" href="{{path('graphic_single', {slug: graphic.slug})}}">
                         <h3 class="name-crea">{{graphic.name}}</h3>
                     </a>

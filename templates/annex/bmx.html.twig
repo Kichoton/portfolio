@@ -1,0 +1,52 @@
+{% extends "base.html.twig" %}
+
+{% block stylesheets %}
+    <link rel="stylesheet" href="css/bmx.css"> 
+{% endblock %}
+
+{% block navbar %}
+    <nav class="navbar navbar-expand-lg navbar-dark fixed-top mx-4">
+        <div class="container-fluid">
+            <a class="navbar-brand" href="{{path('index')}}">
+                <img src="/img/logo-tete-bmx.svg" alt="" height="24">
+            </a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
+            <div class="navbar-nav">
+                <a class="nav-link" aria-current="page" id="about_me" href="{{path("about_me")}}">a propos</a>
+                <a class="nav-link" id="contact" href="{{path("contact")}}">me contacter</a>
+                <a class="nav-link" id="web" href="{{path("web_creation")}}">web</a>
+                <a class="nav-link" id="graphisme" href="{{path("graphic_creation")}}" tabindex="-1" aria-disabled="true">graphisme</a>
+            </div>
+            </div>
+        </div>
+    </nav>
+{% endblock %}
+
+{% block body %}
+    <div class="d-flex text-white flex-column justify-content-between h-100 py-5 px-md-5 px-2">
+        <h1 class='mb-lg-5 mb-3'>le bmx</h1>
+
+        <p>
+            Licencié au <a href='https://www.usbouscatbmx.fr'>Club de BMX du Bouscat</a> depuis 2008, j’ai eu l’occasion de me représenter le club sur de nombreuses pistes autour de France et d’Europe. Mais également de m’investir dans la vie du club de plusieurs façon. En tant que bénévole actif sur es différents événements. En tant qu’entraineur, pour les groupes de débutants et de conseillé pour des pilotes confirmés.En effet l’expérience acquise sur les différentes courses, national et international s’avère être un atout pour le développement de certains pilotes.Depuis 2020 je fais également partis du conseil d’administration du club, pour aider au développement du club et sa communication.
+        </p>
+        <li>
+            <ul>Palmares</ul>
+        </li>
+
+        <p>
+            C’est résultats auraient surement était différents sans l’aide des différents partenaires que j’ai pu avoir.
+        </p>
+
+        <li>
+            <ul>Palmares</ul>
+        </li>
+    
+    </div>
+{% endblock %}
+
+{% block javascripts %}
+
+{% endblock %}
