@@ -19,20 +19,20 @@
             <a class="my-lg-2 my-0 mx-lg-0 mx-3" href="https://github.com/Kichoton"><img class="img-fluid" src='/img/github.svg'></a>
             <a class="my-lg-2 my-0 mx-lg-0 mx-3" href="https://www.linkedin.com/in/theo-saez/"><img class="img-fluid" src='/img/linkedin.svg'></a>
         </div>
-        <div class="col-lg-4 col-12 d-flex flex-column justify-content-center align-items-center">
+        <div class=" col-lg-4 col-12 d-flex flex-column justify-content-center align-items-center">
             {{form_start(message_form)}}
                 {{form_widget(message_form.name, {"attr":{"class" : "form-field w-100", "placeholder":"Nom prénom"}})}}
                 {{form_widget(message_form.email, {"attr":{"class" : "form-field w-100", "placeholder":"Email"}})}}
                 {{form_widget(message_form.phone_number, {"attr":{"class" : "form-field w-100", "placeholder":"Numéro de téléphone (facultatif)"}})}}
                 {{form_widget(message_form.message, {"attr":{"class" : "form-field w-100", "placeholder":"Message"}})}}
-                {{form_widget(message_form.save, {"attr":{"class" : "button" }})}}
+                {{form_widget(message_form.save, {"attr":{"class" : "button",  }})}}
                  {% for message in app.flashes('success') %}
-                    <div class="alert alert-success">
+                    <div class="message-sent alert alert-success">
                         {{ message }}
                     </div>
                 {% endfor %}
               
-
+    
             {{ form_end(message_form)}}
         </div>
     </div>
