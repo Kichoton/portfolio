@@ -25,18 +25,39 @@
                 {{form_widget(message_form.email, {"attr":{"class" : "form-field w-100", "placeholder":"Email"}})}}
                 {{form_widget(message_form.phone_number, {"attr":{"class" : "form-field w-100", "placeholder":"Numéro de téléphone (facultatif)"}})}}
                 {{form_widget(message_form.message, {"attr":{"class" : "form-field w-100", "placeholder":"Message"}})}}
-                {{form_widget(message_form.save, {"attr":{"class" : "button",  }})}}
-                 {% for message in app.flashes('success') %}
+
+                <input type='hidden' id='recaptchaResponse' name='recaptcha-response'>
+                
+                {{form_widget(message_form.save, {"attr":{"class" : "button"}})}}
+                {% for message in app.flashes('success') %}
                     <div class="message-sent alert alert-success">
                         {{ message }}
                     </div>
                 {% endfor %}
-              
+                {% for message in app.flashes('error') %}
+                    <div class="message-sent alert alert-danger">
+                        {{ message }}
+                    </div>
+                {% endfor %}
+
+
+                    
     
             {{ form_end(message_form)}}
+
         </div>
     </div>
 
+    <script src="https://www.google.com/recaptcha/api.js?render=6LcUVd0cAAAAABh3i0lh3wSTbtVaP2SNzeLTVDiK"></script>    
+    <script>
+
+        grecaptcha.ready(function() {
+          grecaptcha.execute('6LcUVd0cAAAAABh3i0lh3wSTbtVaP2SNzeLTVDiK', {action: 'homepage'}).then(function(token) {
+            document.getElementById('recaptchaResponse').value = token
+          });
+        });
+    
+  </script>
     <style>
         body{
             height: 100vh;

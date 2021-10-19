@@ -40,8 +40,9 @@ if (url.includes("graphisme")){
     $graphisme.attr('tabindex', "-1"); 
     $graphisme.attr('aria-disabled', 'true'); 
 }
-$message_sent = $(".message-sent")
 
-if($message_sent.length > 0){
-    $("#message_save").replaceWith('')
-}
+// $message_sent = $(".message-sent")
+
+// if($message_sent.length > 0){
+//     $("#message_save").replaceWith('')
+// }
