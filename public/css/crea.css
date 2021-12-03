@@ -1,9 +1,11 @@
 .a-crea{
-    z-index : 2;    
+    z-index : 2;
+    color : white    
 }
 
-.a-crea>h3{
-    color : white
+.a-crea:hover{
+    color : white;
+    text-decoration : none
 }
 
 .sail-crea{

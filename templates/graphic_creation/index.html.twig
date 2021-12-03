@@ -21,9 +21,10 @@ Vous pouvez observer mon style et ma progression ci-dessous.
     <div class="m-0 p-0 row h-100">
         
             {% for graphic  in graphics | reverse%}
-               <div class="crea d-flex align-items-center justify-content-center col-md-3 col-6 p-2 m-0 position-relative">
-                    <a class="a-crea d-flex align-items-center justify-content-center text-center h-100 w-100 position-absolute" href="{{path('graphic_single', {slug: graphic.slug})}}">
-                        <h3 class="name-crea">{{graphic.name}}</h3>
+               <div class="p-4 crea d-flex align-items-center justify-content-center col-md-3 col-6 p-2 m-0 position-relative">
+                    <a href="https://{{graphic.url}}" target="_blank" class="a-crea d-flex flex-column align-items-center justify-content-center text-center h-100 w-100 position-absolute">
+                        <h2 class="name-crea">{{graphic.client}}</h2>
+                        <p class="name-crea">{{graphic.categorie}}</p>
                     </a>
                     <span class="sail-crea h-100 w-100 position-absolute"></span>
                     <img class="img-fluid" src="/img/miniature_graphic/{{graphic.miniature}}">

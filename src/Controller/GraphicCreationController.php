@@ -32,7 +32,7 @@ class GraphicCreationController extends AbstractController
         $graphic = $graphic_repo->findOneBy(array('slug' => $slug));
 
     
-        return $this->render('graphic_creation/graphic_single.html.twig', [
+        return $this->render('graphic_creation/index.html.twig', [
             "graphic" => $graphic,
         ]);
     }
