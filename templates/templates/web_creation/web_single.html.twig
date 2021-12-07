@@ -1,0 +1,33 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}{% endblock %}
+
+{% block stylesheets %}
+    <link rel="stylesheet" href="/css/crea.css">        
+{% endblock %}
+
+{% block body %}
+    <div class='row justify-content-center'>
+        <img class="col-4 single-img" src="/img/miniature_web/{{web.miniature}}">
+    </div>
+    <div class='row align-items-center justify-content-center'>
+        <p class="col-4 text-center"><u>client</u> : {{web.client}}</p>
+        <p class="col-4 text-center">
+            {% if web.url is empty %}
+             
+            {% else %}
+                <a class='button' href="{{web.url}}">Observez</a>
+            {% endif %}
+        </p>
+        <p class="col-4 text-center">{{web.categorie}}</p>
+    </div>
+    <div class="row justify-content-center">
+        <p class='col-10 my-3'>{{web.description | raw}}</p>
+    </div>
+
+{% endblock %}
+
+
+{% block javascripts %}
+    <script src='/js/crea.js'></script>
+{% endblock %}

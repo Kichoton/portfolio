@@ -9,14 +9,17 @@ body{
     overflow: hidden; /* Hide scrollbars */
 
 }
-
+ 
 #logo-noir{
     width : 50% ;
     margin:auto;
+    max-width: 125px
 }
 
 #photo-ts{
-    width : 45%
+    width : 45%;
+    max-width: 600px;
+
 }
 
 h1{
@@ -49,15 +52,3 @@ h1{
     }
 } 
 
-@media screen and (min-width: 2000px) {
-    #photo-ts{
-        width : 50%;
-    }
-    #logo-noir{
-        width : 50%   
-    }
-    h1{
-        top:2%;
-        right: 45%
-    }
-  } 
