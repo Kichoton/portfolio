@@ -19,7 +19,7 @@ Les créations ci-dessous ont été développées principalement en HTML, CSS, J
         
             {% for web  in webs | reverse%}
                 <div class="crea d-flex align-items-center justify-content-center col-md-3 col-6 p-2 m-0 position-relative">
-                     <a href="https://{{web.url}}" target="_blank" class="a-crea d-flex flex-column align-items-center justify-content-center text-center h-100 w-100 position-absolute">
+                     <a {% if web.url == "-" %} url="#" {%  else %} href="https://{{web.url}}" target="_blank"{% endif %} class="a-crea d-flex flex-column align-items-center justify-content-center text-center h-100 w-100 position-absolute">
                         <h2 class="name-crea">{{web.client}}</h2>
                         <p class="name-crea">{{web.categorie}}</p>
                     </a>

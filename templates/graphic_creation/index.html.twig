@@ -20,7 +20,7 @@ Depuis 2018 et suite à un service civique dans le domaine de la communication, 
         
             {% for graphic  in graphics | reverse%}
                <div class="p-4 crea d-flex align-items-center justify-content-center col-md-3 col-6 p-2 m-0 position-relative">
-                    <a href="https://{{graphic.url}}" class="a-crea d-flex flex-column align-items-center justify-content-center text-center h-100 w-100 position-absolute">
+                    <a {% if graphic.url == "-" %} url="#" {%  else %} href="https://{{graphic.url}}" target="_blank"{% endif %} class="a-crea d-flex flex-column align-items-center justify-content-center text-center h-100 w-100 position-absolute">
 <p class="name-crea">{{graphic.name}}</p>                        
 <p class="name-crea">{{graphic.client}}</p>
                         <p class="name-crea">{{graphic.categorie}}</p>

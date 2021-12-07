@@ -147,8 +147,11 @@ class AdminController extends AbstractController
                          ->add('categorie', ChoiceType::class, [
                             'choices'=> [
                                 'logo' => 'logo',
-                                'identite_visuelle' => 'identité visuelle',
-                                'autres' => 'autres'
+                                'affiche' => 'affiche',
+                                'scene twitch' => 'scene twitch',
+                                'maquette' => 'maquette',
+                                'stickers' => 'stickers'
+
                             ]
                         ])
                          ->add('miniature', FileType::class, [
