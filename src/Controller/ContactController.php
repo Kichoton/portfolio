@@ -47,6 +47,22 @@ class ContactController extends AbstractController
                             $message->setIsRead(false);
                             $entityManager->persist($message);
                             $entityManager->flush();
+                            
+                      
+require_once('../vendor/autoload.php');
+
+$client = new \GuzzleHttp\Client();
+
+$response = $client->request('POST', 'https://api.sendinblue.com/v3/smtp/email', [
+  'body' => '{"sender":{"name":"TS - Site","email":"no-reply@theosaez.com"},"to":[{"email":"contact@theosaez.com","name":"TS - Pro"}],"htmlContent":"<h1>Quelqu\'un a une demande</h1><br><br> <a href=\\"theosaez.com/admin/message\\">Aller voir !</a>","subject":"[Ne pas répondre] Reception d\'un nouveau message"}',
+  'headers' => [
+    'Accept' => 'application/json',
+    'Content-Type' => 'application/json',
+    'api-key' => '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',
+  ],
+]);
+
+echo $response->getBody();
 
                             $this->addFlash('success', 'Le message est envoyé ! ');
 
