@@ -54,7 +54,7 @@ require_once('../vendor/autoload.php');
 $client = new \GuzzleHttp\Client();
 
 $response = $client->request('POST', 'https://api.sendinblue.com/v3/smtp/email', [
-  'body' => '{"sender":{"name":"TS - Site","email":"no-reply@theosaez.com"},"to":[{"email":"contact@theosaez.com","name":"TS - Pro"}],"htmlContent":"<h1>Quelqu\'un a une demande</h1><br><br> <a href=\\"theosaez.com/admin/message\\">Aller voir !</a>","subject":"[Ne pas répondre] Reception d\'un nouveau message"}',
+  'body' => '{"sender":{"name":"TS - Site","email":"no-reply@theosaez.com"},"to":[{"email":"' . $message->getEmail() . '", "name":"' . $message->getName() . '"}],"bcc":[{"email":"contact@theosaez.com", "name":"TS-Pro"}],  "htmlContent":"<h1>Merci de votre message !</h1><br><br>J\'ai bien reçu votre message, je vais faire mon possible pour y répondre au plus vite<br>Votre Message : <br>' . $message->getMessage() . '","subject":"[Ne pas répondre] Message envoyé à Théo SAEZ"}',
   'headers' => [
     'Accept' => 'application/json',
     'Content-Type' => 'application/json',
@@ -62,7 +62,7 @@ $response = $client->request('POST', 'https://api.sendinblue.com/v3/smtp/email',
   ],
 ]);
 
-echo $response->getBody();
+// echo $response->getBody();
 
                             $this->addFlash('success', 'Le message est envoyé ! ');
 
