@@ -12,34 +12,65 @@
 </head>
 <body>
 
-    <div id="homepage" class="">
-        <div class="row py-3 py-lg-0 h-100">
-            <div class="order-md-1 order-2 col-12 col-md-4 col-sm-6 d-flex flex-column justify-content-md-center justify-content-start align-items-center p-0 m-0">
-                <a href="{{path('graphic_creation')}}" class="button my-3 my-sm-5">graphisme</a>
-                <a href="{{path('web_creation')}}" class="button my-3 my-sm-5">web</a>
+    <div id="homepage" class="d-flex flex-xl-row flex-column">
+        <div id='half-left' class='d-flex flex-column justify-content-center align-items-center'>
+            <div>
+                <span class='bvn'>Bien</span>
+                <span class='dot'></span>
+                <br>
+                <span class='bvn'>venue</span>
             </div>
-            <p class="text-center p-0 m-0">Bienvenue&nbsp;!</p>
-            <div class="position-relative order-md-2 d-flex order-1 col-md-4 col-12  flex-column justify-content-between align-items-center py-4 px-5 px-md-0">
-                <div class="position-relative">
-                    <img id='photo-ts' class="img-fluid" src="img/photo-accueil.png" alt="photo visage Théo Saez" >
-                    <h1 class="position-absolute jetbrains-xtra"><span class="jetbrains-thin fs-4">Théo</span><br>SAEZ</h1>
-                </div>
-                <img class="img-fluid d-sm-block d-none p-4" id="logo-noir" src="img/logo-noir.svg" alt="Logo Théo SAEZ">
+            <div class='d-block d-xl-none d-flex flex-column align-items-center'>
+                <hr>
+                <h1 class='h1'>Théo SAEZ</h1>
+                <h4 class='h4'>web / graphisme</h4>
             </div>
-            <div class="order-md-3 order-1 col-12 col-md-4 col-sm-6 d-flex flex-column justify-content-md-center justify-content-end align-items-center p-0 m-0">
-                <a href="{{path("about_me")}}" class="button my-3 my-sm-5">à propos</a>           
-                <a href="{{path("contact")}}" class="button button-anim my-3 my-sm-5">contact</a>         
-            </div>
-
         </div>
-            <img class="img-fluid d-sm-none d-block p-4" id="logo-noir"src="img/logo-noir.svg" alt="Logo Théo SAEZ">
+        <div id='half-right' class='position-relative d-flex flex-column justify-content-center align-items-end'>
+                <span class='d-none d-xl-block'>
+                    <h1 class='h1'>Théo SAEZ</h1>
+                    <h4 class='h4'>web / graphisme</h4>
+                </span>
+                <div class='position-absolute d-flex w-100 h-100 d-flex justify-content-center align-items-center'>
+                    <img id='logo-tete' class='img-fluid h-100' src='img/logo-tete.svg'>
+                </div>
+        
+        </div>
+        <div class='position-absolute' id='btn-slider'>
+            <div id="nav-icon1">
+                <span></span>
+                <span></span>
+                <span></span>
+            </div>
+        </div>
+    </div>
+    
+    <div id='buttons'class='btn-hidden position-absolute d-flex flex-column justify-content-between align-items-center align-items-xl-start'>
+        <a href="" class="button button-anim-out">Graphisme</a>
+        <a href="" class="button button-anim-out">Web</a>
+        <a href="" class="button button-anim-out">A propos</a>
+        <a href="" class="button button-anim-out">Contact</a>
+        <br class='d-none d-xl-block'>
+        <a href="" class="button button-anim-out">Twitch</a>
+        <a href="" class="button button-anim-out">BMX</a>
     </div>
 
+    <span class='position-absolute d-none d-xl-block' id='portfolio'>Portfolio</span>
+    <span class='position-absolute d-none d-xl-block' id='date'>02/02/99</span>
+    <span class='position-absolute d-none d-xl-block' id='easter'>
+        ...
+    </span>
+
+    
+    
             
 </body>
 
 <script src="/js/jquery.js"></script>
 <script src="/js/script.js"></script>
+<script>
+
+</script>
 
 </html>
 

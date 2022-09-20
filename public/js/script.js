@@ -46,3 +46,33 @@ if (url.includes("graphisme")){
 // if($message_sent.length > 0){
 //     $("#message_save").replaceWith('')
 // }
+
+// ----------accueil
+
+$(document).ready(function(){
+	$('#nav-icon1').click(function(){
+        $(this).toggleClass('open');
+    });
+    
+});
+// console.log($('#btn-slider').position().left)
+
+$('#btn-slider').click(function() {
+    if($('#buttons').hasClass('btn-hidden')){
+        if ($(window).width()<1201){
+            $('#buttons').animate({top : '50%'})
+        }else{
+            $('#buttons').animate({left : '55%'})
+        }
+        $('#buttons').removeClass('btn-hidden')
+        $('#buttons').addClass('btn-visible')
+    }else{
+        if ($(window).width()<1201){
+            $('#buttons').animate({top : '0%'})
+        }else{
+            $('#buttons').animate({left : '25%'})
+        }
+        $('#buttons').removeClass('btn-visible')
+        $('#buttons').addClass('btn-hidden')
+    }
+})
