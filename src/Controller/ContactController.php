@@ -58,7 +58,7 @@ $response = $client->request('POST', 'https://api.sendinblue.com/v3/smtp/email',
   'headers' => [
     'Accept' => 'application/json',
     'Content-Type' => 'application/json',
-    'api-key' => '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',
+    'api-key' => '',
   ],
 ]);
 
