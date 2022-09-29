@@ -22,6 +22,23 @@ body{
     font-family: jetbrains;
 }
 
+.half-blue{
+    background-color: #020299;
+    width: 50%;
+    height: 100%;
+    color: white;
+    z-index: 2
+}
+
+.half-page{
+    width: 50%;
+    height: 100%;
+}
+
+.half-page>div{
+    width: 100%;
+}
+
 .jetbrains-thin{font-family: jetbrains-thin;}
 .jetbrains-light{font-family: jetbrains-light;}
 .jetbrains-xtra{font-family: jetbrains-xtrabold;}

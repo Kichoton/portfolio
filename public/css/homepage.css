@@ -17,23 +17,6 @@ body{
     text-shadow: 3px 0 0 white, -3px 0 0 white, 0 3px 0 white, 0 -3px 0 white, 2px 2px white, -2px -2px 0 white, 2px -2px 0 white, -2px 2px 0 white
 }
 
-#half-left{
-    background-color: #020299;
-    width: 50%;
-    height: 100%;
-    color: white;
-    z-index: 2
-}
-
-#half-right{
-    width: 50%;
-    height: 100%;
-}
-
-#half-right>div{
-    width: 100%;
-}
-
 .dot{
     height: 25px;
     width: 25px;
